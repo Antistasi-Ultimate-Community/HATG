@@ -9,7 +9,7 @@
 			</Key>
 			<Key ID="STR_HATG_Keybind_Refresh_Info">
 				<Original>This keybind will refresh the UI, it can be used to re-load the UI after loading a save.</Original>
-				<Original>This keybind will refresh the UI, it can be used to re-load the UI after loading a save.</Original>
+				<English>This keybind will refresh the UI, it can be used to re-load the UI after loading a save.</English>
 				<Korean>UI를 새로고침 하는 키 설정입니다. 저장한 파일을 불러온 후 UI를 다시 불러오는 데 사용됩니다.</Korean>
 			</Key>
 			<Key ID="STR_HATG_Keybind_Toggle">
@@ -19,7 +19,7 @@
 			</Key>
 			<Key ID="STR_HATG_Keybind_Toggle_Info">
 				<Original>This keybind will toggle HATG functionality, it can be used to completely turn the "mirror" off (except the UI).</Original>
-				<Original>This keybind will toggle HATG functionality, it can be used to completely turn the "mirror" off (except the UI).</Original>
+				<English>This keybind will toggle HATG functionality, it can be used to completely turn the "mirror" off (except the UI).</English>
 				<Korean>HATG 모드의 기능을 토글하며, "미러" 기능을 완전히 끄는 데 사용되는 키 설정입니다(UI 제외).</Korean>
 			</Key>
 		</Container>
@@ -28,9 +28,11 @@
 		<Container name="Settings">
 			<Key ID="STR_HATG_Simple_Object">
 				<Original>Use Simple Blocking Object</Original>
+				<Korean>단순화 차단 오브젝트 사용</Korean>
 			</Key>
 			<Key ID="STR_HATG_Simple_Object_info">
 				<Original>This setting changes the object created as a 'mirror'. Instead of being covered, the object is only infront of you. This means you are vulnerable to the flanks and back. Also fixes any camera issues due to collision.</Original>
+				<Korean>'mirror'로 생성된 오브젝트를 변경합니다. 은신은 가능하지만 오브젝트가 플레이어 바로 앞에만 있습니다. 즉, 측면과 후방에는 은신이 취약하다는 의미입니다. 또한 오브젝트 충돌로 인한 카메라 버그도 해결합니다.</Korean>
 			</Key>
 			<Key ID="STR_HATG_Simple">
 				<Original>'Simple' Mode</Original>
