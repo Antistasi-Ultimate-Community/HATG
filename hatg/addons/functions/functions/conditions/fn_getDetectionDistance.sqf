@@ -28,7 +28,7 @@ private _distanceCloseMultiplier = hatg_setting_distance_close_multiplier;
 
 // Can't think of a better way to do these if statements, there will be a more efficient way. Brain doesn't brain rn
 if (hatg_setting_simple) then {
-    _distanceClose = 10;
+    _distanceClose = 5;
     _distanceCloseMultiplier = 2;
 };
 

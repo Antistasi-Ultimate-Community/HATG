@@ -15,13 +15,15 @@ private _displayImage = QPATHTOFOLDER(data\ui\revealed_ca.paa);
 
 private _colour = _displayColourRevealed;
 
-if !(hatg_setting_ui) exitWith {
+private _mirrorToggled = ["hatg_mirror_toggle", false, _unit] call HATG_fnc_getVariable;
+
+if (!hatg_setting_ui && !_mirrorToggled) exitWith {
     private _hiddenText = "";
     _displayHidden ctrlSetStructuredText (parseText _hiddenText);
     _displayHidden ctrlCommit 0;
 };
 
-if (["hatg_mirror_toggle", false, _unit] call HATG_fnc_getVariable) then {
+if (_mirrorToggled) then {
     _statusText = localize "$STR_HATG_Disabled";
     _displayImage = QPATHTOFOLDER(data\ui\disabled_ca.paa);
 };
@@ -36,9 +38,9 @@ _colour = (_colour call BIS_fnc_colorRGBAtoHTML);
 
 private _hiddenText = "";
 if (hatg_setting_ui_use_image) then {
-    _hiddenText = format ["<img align='center' color='%3' size='%1' image='%2' /><br />", _textSize * 2, _displayImage, _colour];
+    _hiddenText = format ["<img align='center' shadow='0' color='%3' size='%1' image='%2' /><br />", _textSize * 2, _displayImage, _colour];
 } else {
-    _hiddenText = format ["<t font ='%3' align = 'center' size='%2' color='%1'>" + _statusText + "</t>", _colour, _textSize, hatg_setting_ui_font];
+    _hiddenText = format ["<t shadow='1' font ='%3' align = 'center' size='%2' color='%1'>" + _statusText + "</t>", _colour, _textSize, hatg_setting_ui_font];
 };
 
 _displayHidden ctrlSetStructuredText (parseText _hiddenText);
