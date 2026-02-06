@@ -19,7 +19,7 @@
     "CHECKBOX",
     ["$STR_HATG_UI_Use_Image", "$STR_HATG_UI_Use_Image_info"],
     SETTING_HEADER_UI,
-    false,
+    true,
     2
 ] call CBA_fnc_addSetting;
 
@@ -86,7 +86,7 @@ private _fontNames = ["PuristaBold", "PuristaLight", "PuristaMedium", "PuristaSe
     "COLOR",
     ["$STR_HATG_UI_Colour_Hidden", "$STR_HATG_UI_Colour_Hidden_info"],
     SETTING_HEADER_UI,
-    [0, 1, 0, 1],
+    [0.5, 0.5, 0.5, 0.5],
     2
 ] call CBA_fnc_addSetting;
 
@@ -95,6 +95,6 @@ private _fontNames = ["PuristaBold", "PuristaLight", "PuristaMedium", "PuristaSe
     "COLOR",
     ["$STR_HATG_UI_Colour_Revealed", "$STR_HATG_UI_Colour_Revealed_info"],
     SETTING_HEADER_UI, 
-    [1, 0, 0, 1],
+    [1, 1, 1, 1],
     2
 ] call CBA_fnc_addSetting;

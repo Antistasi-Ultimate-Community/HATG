@@ -44,6 +44,7 @@ private _cooldown = _unit getVariable ["hatg_mirror_cooldown", false];
 if (_cooldown) exitWith {["Cooldown Check Failed", 3, _fnc_scriptName] call HATG_fnc_log; false};
 
 private _movementSpeed = speed _unit;
+
 if (_stance isEqualTo "CROUCH" && {_movementSpeed > hatg_setting_movement_crouch}) exitWith {["Movement Speed Check Failed", 3, _fnc_scriptName] call HATG_fnc_log; false};
 if (_stance isEqualTo "STAND" && {[_unit] call HATG_fnc_isInBuilding isEqualTo false}) exitWith {["Stand Building Check Failed", 3, _fnc_scriptName] call HATG_fnc_log; false};
 

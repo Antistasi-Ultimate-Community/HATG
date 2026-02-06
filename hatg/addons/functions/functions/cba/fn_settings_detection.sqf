@@ -8,7 +8,7 @@
     "CHECKBOX",
     ["$STR_HATG_Surface_Requirements", "$STR_HATG_Surface_Requirements_info"],
     SETTING_HEADER_DETECTION, 
-    true,
+    false,
     true,
     {
         params ["_value"];
@@ -152,7 +152,7 @@
     "SLIDER",
     ["$STR_HATG_Reset_Shot_Counter", "$STR_HATG_Reset_Shot_Counter_info"],
     SETTING_HEADER_DETECTION_STEALTH,
-    [-1, 30, 5, 0],
+    [-1, 30, 10, 0],
     true,
     {
         params ["_value"];

@@ -32,6 +32,7 @@ private _resetDistance = hatg_setting_distance_reset;
 // Get the unit "information", shots and position
 private _unitInformation = ["hatg_mirror_unitInformation", [], _unit] call HATG_fnc_getVariable;
 private _unitShots = 0;
+private _unitShotsUpdated = -1;
 private _unitPos = getPosATL _unit;
 
 if (_unitInformation isNotEqualTo []) then {
@@ -41,21 +42,22 @@ if (_unitInformation isNotEqualTo []) then {
 
 if (_unit distance2D _unitPos >= _resetDistance || {_resetDistance isEqualTo -1 || {hatg_setting_simple}}) then {
     private _unitPosUpdated = getPosATL _unit;
+    _unitShotsUpdated = 0;
     
     ["hatg_mirror_unitInformation", [0, _unitPosUpdated], _unit] call HATG_fnc_setVariable;
 
-    ["hatg_mirror_allowedShots", -1, _unit] call HATG_fnc_setVariable;
+    ["hatg_mirror_allowedShots", _unitShotsUpdated, _unit] call HATG_fnc_setVariable;
     
     [format["Resetting shot count for %1 and updating their position information.", name _unit], 4, _fnc_scriptName] call HATG_fnc_log;
 } else {
-    private _unitShotsUpdated = _unitShots + 1;
+    _unitShotsUpdated = _unitShots + 1;
     
     ["hatg_mirror_unitInformation", [_unitShotsUpdated, _unitPos], _unit] call HATG_fnc_setVariable;
 
     [format["Adding 1 to shot count for %1.", name _unit], 4, _fnc_scriptName] call HATG_fnc_log;
 };
 
-private _canStayHidden = [_unit, _unitShots] call HATG_fnc_canStayHidden;
+private _canStayHidden = [_unit, _unitShotsUpdated] call HATG_fnc_canStayHidden;
 if (_canStayHidden) exitWith {}; // If they should remain hidden then don't do a cooldown
 
 [format ["%1 fired. Giving cooldown", name _unit], 1, _fnc_scriptName] call HATG_fnc_log;
