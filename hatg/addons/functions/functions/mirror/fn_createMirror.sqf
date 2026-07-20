@@ -13,6 +13,9 @@
     Dependencies:
         hatg_setting_simple_object <BOOL>
 
+        _unit variables:
+        > "hatg_mirror_visible" <OBJECT>
+
     Scope:
         Local, Remote* (?)
     
@@ -34,7 +37,13 @@ params [
 if (_unit isEqualTo ObjNull) exitWith {false};
 
 private _mirror = [_unit] call HATG_fnc_getMirror;
-if (_mirror isNotEqualTo ObjNull) exitWith {false};
+
+if !(isNull _mirror) exitWith {
+    _mirror hideObjectGlobal false;
+    _unit setVariable ["hatg_mirror_visible", true, true];
+    if (isPlayer _unit) then { [_unit] call HATG_fnc_handleDisplayText; };
+    _mirror
+};
 
 [format["Creating a mirror for %1 (ATL: %2)", name _unit, getPosATL _unit], 1, _fnc_scriptName] call HATG_fnc_log;
 
@@ -53,7 +62,10 @@ private _mirror = _mirrorType createVehicle [0,0,0];
 _mirror setPosATL getPosATL _unit;
 _mirror attachTo [_unit, _mirrorCoords];
 
+_mirror hideObjectGlobal true;
+
 _unit setVariable ["hatg_mirror", _mirror, true];
+_unit setVariable ["hatg_mirror_visible", false, true]; 
 
 if (isPlayer _unit) then {
     [_unit] call HATG_fnc_handleDisplayText;
