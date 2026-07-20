@@ -88,7 +88,7 @@
     "SLIDER",
     ["$STR_HATG_Detection_Cooldown", "$STR_HATG_Detection_Cooldown_info"],
     SETTING_HEADER_DETECTION, 
-    [0, 600, 30, 0],
+    [0, 600, 15, 0],
     true,
     {
         params ["_value"];
@@ -104,7 +104,7 @@
     "SLIDER",
     ["$STR_HATG_Detection_Distance", "$STR_HATG_Detection_Distance_info"],
     SETTING_HEADER_DETECTION,
-    [0, 100, 30, 0],
+    [0, 100, 10, 0],
     true,
     {
         params ["_value"];
