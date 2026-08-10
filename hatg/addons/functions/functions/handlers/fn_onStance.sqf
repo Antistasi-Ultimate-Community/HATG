@@ -9,9 +9,8 @@
         _unit <OBJECT>
     
     Dependencies:
-        _unit variables:
+        missionNamespace variables:
         > "hatg_mirror_disable" <BOOL>
-        > "hatg_mirror_visible" <BOOL>
     
     Usage:
         [player] call HATG_fnc_onStance;
@@ -32,24 +31,13 @@ if (hatg_setting_enable_crouch) then {
     _stances pushBack "CROUCH";
 };
 
-private _mirrorVisible = _unit getVariable ["hatg_mirror_visible", false];
-
-if !(_stance in _stances) exitWith {
-    if (_mirrorVisible) then {
-        [_unit] call HATG_fnc_deleteMirror;
-    };
-    false
-};
+if !(_stance in _stances) exitWith {[_unit] call HATG_fnc_deleteMirror; false};
 
 if ([_unit, _stance] call HATG_fnc_canCreateMirror) exitWith {
-    if !(_mirrorVisible) then {
-        [_unit] call HATG_fnc_createMirror;
-    };
+    [_unit] call HATG_fnc_createMirror;
     false;
 };
 
-if (_mirrorVisible) then {
-    [_unit] call HATG_fnc_deleteMirror;
-};
+[_unit] call HATG_fnc_deleteMirror;
 
 false;
